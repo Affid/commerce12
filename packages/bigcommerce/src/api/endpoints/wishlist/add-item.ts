@@ -22,7 +22,7 @@ const addItem: WishlistEndpoint['handlers']['addItem'] = async ({
   
   return res.status(400).json({
       data: null,
-      errors: [{ customerToken: customerToken, customerId: customerId }],
+      errors: [{ message: 'customerToken: ' && customerToken', customerId: ' && customerId }],
     })
 
   if (!customerId) {
