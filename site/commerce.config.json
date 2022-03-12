@@ -2,9 +2,9 @@
   "features": {
     "cart": true,
     "search": true,
-    "wishlist": false,
-    "customerAuth": false,
-    "customCheckout": false
+    "wishlist": true,
+    "customerAuth": true,
+    "customCheckout": true
   },
   "@vercel/commerce-bigcommerce": {
     "features": {
