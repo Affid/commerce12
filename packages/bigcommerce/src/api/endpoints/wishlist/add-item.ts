@@ -18,7 +18,7 @@ const addItem: WishlistEndpoint['handlers']['addItem'] = async ({
   }
 
   const customerId =
-    await getCustomerId({ customerToken, config })
+    customerToken && (await getCustomerId({ customerToken, config }))
 
   if (!customerId) {
     return res.status(400).json({
