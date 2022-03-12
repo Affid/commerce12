@@ -5,11 +5,5 @@
     "wishlist": true,
     "customerAuth": true,
     "customCheckout": true
-  },
-  "@vercel/commerce-bigcommerce": {
-    "features": {
-      "wishlist": true,
-      "customerAuth": true
-    }
   }
 }
