@@ -27,13 +27,6 @@ const addItem: WishlistEndpoint['handlers']['addItem'] = async ({
       errors: [{ message: 'Invalid request' }],
     })
   }
-  
-  if(customerId){
-    return res.status(400).json({
-      data: null,
-      errors: [{ message: ` ${customerId} ` }],
-    })
-  }
 
   const { wishlist } = await commerce.getCustomerWishlist({
     variables: { customerId },
@@ -48,7 +41,7 @@ const addItem: WishlistEndpoint['handlers']['addItem'] = async ({
           }
         : {
             name: 'Wishlist',
-            customer_id: customerId,
+            customer_id: parseInt(customerId),
             items: [parseWishlistItem(item)],
             is_public: false,
           }
