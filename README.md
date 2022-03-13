@@ -8,4 +8,3 @@ Start right now at [nextjs.org/commerce](https://nextjs.org/commerce)
 Demo live at: [commerce12-affid.vercel.app](https://commerce12-affid.vercel.app/)
 
 ![Demo image](https://user-images.githubusercontent.com/47119594/158075114-9bc2a516-1bc5-455d-b616-8d1ff78482bb.png)
-
