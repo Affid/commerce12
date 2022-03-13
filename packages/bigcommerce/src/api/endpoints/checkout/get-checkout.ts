@@ -27,33 +27,34 @@ const getCheckout: CheckoutEndpoint['handlers']['getCheckout'] = async ({
     customerToken && (await getCustomerId({ customerToken, config }))
 
   //if there is a customer create a jwt token
-  if (!customerId) {
+//   if (!customerId) {
     if (fullCheckout) {
       res.redirect(data.checkout_url)
       return
     }
-  } else {
-    const dateCreated = Math.round(new Date().getTime() / 1000)
-    const payload = {
-      iss: config.storeApiClientId,
-      iat: dateCreated,
-      jti: uuid(),
-      operation: 'customer_login',
-      store_hash: config.storeHash,
-      customer_id: customerId,
-      channel_id: config.storeChannelId,
-      redirect_to: data.checkout_url.replace(config.storeUrl, ""),
-    }
-    let token = jwt.sign(payload, config.storeApiClientSecret!, {
-      algorithm: 'HS256',
-    })
-    let checkouturl = `${config.storeUrl}/login/token/${token}`
-    console.log('checkouturl', checkouturl)
-    if (fullCheckout) {
-      res.redirect(checkouturl)
-      return
-    }
-  }
+//   } 
+//   else {
+//     const dateCreated = Math.round(new Date().getTime() / 1000)
+//     const payload = {
+//       iss: config.storeApiClientId,
+//       iat: dateCreated,
+//       jti: uuid(),
+//       operation: 'customer_login',
+//       store_hash: config.storeHash,
+//       customer_id: customerId,
+//       channel_id: config.storeChannelId,
+//       redirect_to: data.checkout_url.replace(config.storeUrl, ""),
+//     }
+//     let token = jwt.sign(payload, config.storeApiClientSecret!, {
+//       algorithm: 'HS256',
+//     })
+//     let checkouturl = `${config.storeUrl}/login/token/${token}`
+//     console.log('checkouturl', checkouturl)
+//     if (fullCheckout) {
+//       res.redirect(checkouturl)
+//       return
+//     }
+//   }
 
   // TODO: make the embedded checkout work too!
   const html = `
